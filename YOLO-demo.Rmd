@@ -2,16 +2,18 @@
 title: "YOLO-demo"
 author: "Rick O. Gilmore"
 date: "`r Sys.time()`"
+bibliography: references.bib
 output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 ```
 
 ## 2018-11-02 iTRAC meeting
 
 - Discuss application of [YOLO](https://pjreddie.com/darknet/yolo/)
+- [@yolov3](https://pjreddie.com/darknet/yolo/), [@Redmon2015-rs](http://arxiv.org/abs/1506.02640)
 
 ### Download and make
 
@@ -24,35 +26,43 @@ make
 
 ### Download weight file
 
-```{bash}
+```{r}
 # wget https://pjreddie.com/media/files/yolov3.weights
 # if wget not available, can download manually
-download.file('https://pjreddie.com/media/files/yolov3.weights')
+download.file('https://pjreddie.com/media/files/yolov3.weights', destfile = "darknet/yolov3.weights")
 # cp ~/Downloads/yolov3.weights .
 ```
 
 ### Run on sample `data/dog.jpg` file
 
-```{bash}
+```{bash, eval=TRUE}
+cd darknet
 ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
 ```
 
 Show detected image.
 
-```{bash}
-open *.jpg
+```{bash, eval=TRUE}
+open darknet/predictions.jpg
 ```
 
-![Detected patterns](predictions.jpg)
+![Detected patterns](darknet/predictions.jpg)
 
 ### Run on sample `data/horses.jpg`
 
-```{bash}
+```{bash, eval=TRUE}
+cd darknet
 ./darknet detect cfg/yolov3.cfg yolov3.weights data/horses.jpg
 ```
 
-Show detected image.
+Show detected image in external window...
 
-```{bash}
-open *.jpg
+```{bash, eval=TRUE}
+open darknet/predictions.jpg
 ```
+
+and in-line.
+
+![Detected patterns](darknet/predictions.jpg)
+
+## References

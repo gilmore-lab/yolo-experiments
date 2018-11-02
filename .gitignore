@@ -3,5 +3,6 @@
 .RData
 .Ruserdata
 yolo-experiments.Rproj
-darknet
+darknet/
 yolov3.weights
+darknet
