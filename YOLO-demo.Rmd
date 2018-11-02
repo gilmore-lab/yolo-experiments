@@ -35,6 +35,8 @@ download.file('https://pjreddie.com/media/files/yolov3.weights', destfile = "dar
 
 ### Run on sample `data/dog.jpg` file
 
+This takes about 30-35s on Rick's old Macbook Air.
+
 ```{bash, eval=TRUE}
 cd darknet
 ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
@@ -50,19 +52,17 @@ open darknet/predictions.jpg
 
 ### Run on sample `data/horses.jpg`
 
-```{bash, eval=TRUE}
+This code is not run. Change the chunk option to `eval=TRUE` to execute it.
+
+```{bash}
 cd darknet
 ./darknet detect cfg/yolov3.cfg yolov3.weights data/horses.jpg
 ```
 
 Show detected image in external window...
 
-```{bash, eval=TRUE}
+```{bash}
 open darknet/predictions.jpg
 ```
-
-and in-line.
-
-![Detected patterns](darknet/predictions.jpg)
 
 ## References
